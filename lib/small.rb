@@ -21,6 +21,6 @@ class App < Sinatra::Base
   get '/:agent/:action' do
     c = Client.new(params[:agent])
     result = c.send(params[:action])
-    "#{result.inspect}"
+    result.to_json
   end
 end
