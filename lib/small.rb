@@ -18,6 +18,10 @@ class Client
 end
 
 class App < Sinatra::Base
+  get '/' do
+    "OK"
+  end
+
   get '/:agent/:action' do
     c = Client.new(params[:agent])
     result = c.send(params[:action])
