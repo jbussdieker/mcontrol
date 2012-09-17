@@ -24,7 +24,7 @@ class App < Sinatra::Base
 
   get '/:agent/:action' do
     c = Client.new(params[:agent])
-    result = c.send(params[:action])
+    result = c.send(params[:action], JSON.parse(params[:args] || "{}"))
     result.to_json
   end
 end
